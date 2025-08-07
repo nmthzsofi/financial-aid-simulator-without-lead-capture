@@ -802,7 +802,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (maxAid <= 0) {
           resultText.textContent = `You are not eligible to apply for financial aid`;
-          resultTextDescription.textContent = `Based on the information provided, you do not currently meet the criteria to receive financial assistance. If you believe there are exceptional circumstances or if your situation changes, please contact our admissions team.`;
+          resultTextDescription.textContent = `Based on the information provided, you do not currently meet the criteria to apply for financial assistance. If you believe there are exceptional circumstances or if your situation changes, please contact our admissions team.`;
         } else {
           resultText.innerHTML = `You are eligible to apply for financial aid`;
           resultTextDescription.innerHTML = `Based on the information provided, you meet the criteria to apply for financial aid.`;
