@@ -649,9 +649,11 @@ function showPage(pageId) {
                 resultScreen.classList.add('active');
 
                 if(maxAid <= 0){
-                    resultText.textContent = `You are not eligible for financial aid.`
+                    resultText.textContent = `You are not eligible for financial aid.
+Based on the information provided, you do not currently meet the criteria to receive financial assistance. If you believe there are exceptional circumstances or if your situation changes, please contact our admissions team.`
                 } else{ 
-                    resultText.innerHTML = `Based on the information provided, it seems that you may be eligible to receive financial aid.  Please note that this is an estimate only, and we will need to review your full documentation to determine the exact amount of aid you are eligible for.`;
+                    resultText.innerHTML = `You are eligible for financial aid.
+Based on the information provided, you meet the criteria to receive financial assistance. A member of our team will review your submission and be in touch with next steps.`;
                 } 
 
                 
