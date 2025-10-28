@@ -795,6 +795,7 @@ document.addEventListener("DOMContentLoaded", function () {
       loadingScreen.classList.remove("active");
       if (programCost) {
         resultScreen.classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
 
         if (maxAid <= 0) {
           resultText.textContent = `You are not eligible to apply for financial aid`;
