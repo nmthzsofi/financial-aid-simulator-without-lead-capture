@@ -13,9 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //---------------------------------- income DOM elements
   const netIncome = document.getElementById("income");
-  const netIncomeLabel = document.getElementById("income-radio-label");
-  const incomeRadio = document.getElementById("income-radio");
+  //const netIncomeLabel = document.getElementById("income-radio-label");
+  //const incomeRadio = document.getElementById("income-radio");
 
+  /* 
   //---------------------------------- Lead form DOM elements
   const leadEmail = document.getElementById("lead-email");
   const leadFirstName = document.getElementById("lead-first-name");
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const leadStartYear = document.getElementById("lead-start-year");
   const leadPrivacyPolicy = document.getElementById("lead-privacy");
   const leadPrivacyLabel = document.getElementById("lead-privacy-label");
-
+*/
   const emailError = document.getElementById("email-error");
   let gradeIndex;
 
@@ -44,10 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const calculateBtnLabel = document.getElementById("calculate-label");
 
   // ----------------------------------
-  const portalId = "27159977";
-  const formGuid = "0c5ec7cb-9333-4519-8370-61f29eff2bc1";
+  //const portalId = "27159977";
+  //const formGuid = "0c5ec7cb-9333-4519-8370-61f29eff2bc1";
 
-  const hubspotEndpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`;
+  //const hubspotEndpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`;
 
   // ---------------------------------- Global card index for popstate()
   let currentCardIndex = 0;
@@ -215,11 +216,11 @@ document.addEventListener("DOMContentLoaded", function () {
       // Append the option to the dropdown
       countryDropdown.appendChild(countryItem);
 
+      /*
       const countryItem2 = document.createElement("option");
       countryItem2.value = element; // Set the value attribute
       countryItem2.textContent = element; // Set the visible text
-
-      leadCountry.appendChild(countryItem2);
+      */
     });
   }
   countries_loader();
@@ -520,30 +521,21 @@ document.addEventListener("DOMContentLoaded", function () {
   //EVENT LISTENERS ------------------------------------------------------------------------------------------------------------------------
 
   //Helper for validating income input
+  /*
   const isBtnUsable = () => {
     if (netIncome.value) {
       netIncomeLabel.style.pointerEvents = "";
       netIncomeLabel.style.opacity = "1";
-      incomeRadio.disabled = false;
+      //incomeRadio.disabled = false;
     } else {
       netIncomeLabel.style.pointerEvents = "none";
       netIncomeLabel.style.opacity = "0.2";
-      incomeRadio.disabled = true;
+      //incomeRadio.disabled = true;
     }
   };
+  */
 
-  const isCalcUsable = () => {
-    if (leadPrivacyPolicy.checked) {
-      calculateBtnLabel.style.pointerEvents = "";
-      calculateBtnLabel.style.opacity = "1";
-      calculateButton.disabled = false; // Enable the radio button
-    } else {
-      calculateBtnLabel.style.pointerEvents = "none";
-      calculateBtnLabel.style.opacity = "0.2";
-      calculateButton.disabled = true; // Disable the radio button
-    }
-  };
-
+  /*
   const isValidEmail = () => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -553,11 +545,12 @@ document.addEventListener("DOMContentLoaded", function () {
       leadEmail.style.border = "2px solid red";
     }
   };
+  */
 
   //-------------------------------------- Validating input
-  netIncome.addEventListener("input", isBtnUsable);
-  leadPrivacyPolicy.addEventListener("change", isCalcUsable);
-  leadEmail.addEventListener("blur", isValidEmail); // Validate as the user types
+  //netIncome.addEventListener("input", isBtnUsable);
+  //leadPrivacyPolicy.addEventListener("change", isCalcUsable);
+  //leadEmail.addEventListener("blur", isValidEmail); // Validate as the user types
 
   //Is al required filled out
   //WORKING: Calculate everything when the calculate button is clicked
@@ -586,6 +579,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    /*
     if (!leadEmail.value || leadEmail.value === "") {
       //alert('Please enter a valid email.');
       leadEmail.style.border = "1px solid red";
@@ -617,13 +611,14 @@ document.addEventListener("DOMContentLoaded", function () {
       leadStartYear.style.borderColor = "red";
       valid = false;
     }
+      */
     /*
         if(!valid){
             return;
         }
         */
 
-    document.getElementById("question-6").classList.remove("active");
+    document.getElementById("question-5").classList.remove("active");
     loadingScreen.classList.add("active");
 
     const countryData = await fetchCountryData(selectedCountry);
@@ -741,6 +736,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("Min aid after subtracting the appropriate amount:" + minAid);
 
+    /*
     // Prepare HubSpot payload
     const hubspotData = {
       fields: [
@@ -794,7 +790,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => {
         console.error("Error submitting data to HubSpot:", error);
       });
-
+*/
     setTimeout(function () {
       loadingScreen.classList.remove("active");
       if (programCost) {
@@ -802,7 +798,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (maxAid <= 0) {
           resultText.textContent = `You are not eligible to apply for financial aid`;
-          resultTextDescription.textContent = `Based on the information provided, you do not currently meet the criteria to apply for financial assistance. If you believe there are exceptional circumstances or if your situation changes, please contact our admissions team.`;
+          resultTextDescription.textContent = `Based on the information provided, you do not currently meet the criteria to receive financial assistance. If you believe there are exceptional circumstances or if your situation changes, please contact our admissions team.`;
         } else {
           resultText.innerHTML = `You are eligible to apply for financial aid`;
           resultTextDescription.innerHTML = `Based on the information provided, you meet the criteria to apply for financial aid.`;
@@ -954,6 +950,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //CLEANING UP AND LOADING UP
-  isBtnUsable();
-  isCalcUsable();
+  //isBtnUsable();
+  //isCalcUsable();
 });

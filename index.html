@@ -114,10 +114,16 @@
                 <p class="header">What is your household's yearly income after taxes (€)?</p>
                 <div class="options-div income-div">
                     <input type="number" id="income" class="form-control" placeholder="Enter amount in €" required>
+                    <label id="calculate-label" class="control-button">
+                    <input id="calculate-button" class="option-button" type="radio" type="submit"
+                        value="calculate">Calculate
+                    </label>
+                    <!--
                     <label id="income-radio-label" class="option-label">
                         <input name="question-5" data-current="5" data-next="6" class="option-button" type="radio"
                             id="income-radio" value="next">Next
                     </label>
+                    -->
                 </div>
                 <span class="span"></span>
 
@@ -135,14 +141,17 @@
 
             <!-- Result Screen -->
             <div id="result-screen" class="page">
-                <h2 id="result" class="text-success"></h2>
+                <h2  id="result" class="text-success"></h2>
                 <p id="result-description" class="fs-5"></p>
             </div>
         </div>
 
+       
+<!--
         <div id="question-6" class="page last-page">
             <p class="last">Thank you for answering all the questions.</p>
-            <p class="header header-form">Fill in this form to discover your result!</p>
+            <p class="header header-form"></p>
+             
             <form class="lead-capture">
                 <div class="row">
                     <div class="column">
@@ -164,12 +173,6 @@
                     <div class="column">
                         <label for="phone">Phone number</label>
                         <div class="phone-input">
-                            <!--
-                            <select>
-                                <option value="+36">🇭🇺 +36</option>
-                            
-                            </select>
-                             -->
                             <input type="number" id="lead-phone" name="phone">
                         </div>
                         <div class="description">You don’t have to provide your phone number, but if you decide to apply
@@ -231,7 +234,7 @@
                         value="calculate">Calculate</label>
             </form>
 
-
+-->
 
 
         </div>
